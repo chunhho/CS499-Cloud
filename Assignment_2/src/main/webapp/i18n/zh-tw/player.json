@@ -1,0 +1,27 @@
+{
+    "cs499A2App": {
+        "player" : {
+            "home": {
+                "title": "Players",
+                "createLabel": "建立一筆新的 Player",
+                "createOrEditLabel": "建立或編輯 Player",
+                "search": "搜尋 Player"
+            },
+            "created": "新的 Player 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Player 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Player 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Player {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Player"
+            },
+            "familyName": "Family Name",
+            "characterName": "Character Name",
+            "energy": "Energy",
+            "cp": "Cp",
+            "team": "Team",
+            "player": "Player"
+        }
+    }
+}

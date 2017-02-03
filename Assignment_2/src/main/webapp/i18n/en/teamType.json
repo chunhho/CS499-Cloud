@@ -1,0 +1,9 @@
+{
+    "cs499A2App": {
+        "TeamType" : {
+            "null": "",
+            "ATTACK": "ATTACK",
+            "DEFENSE": "DEFENSE"
+        }
+    }
+}

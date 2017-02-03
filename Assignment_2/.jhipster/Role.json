@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "player",
+            "otherEntityName": "player",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "classType",
+            "fieldType": "ClassType",
+            "fieldValues": "BERSERKER,KUNOICHI,MAEHWA,MUSA,NINJA,RANGER,SORCERESS,TAMER,VALKYRIE,WARRIOR,WITCH,WIZARD"
+        },
+        {
+            "fieldName": "level",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "sp",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170203064014",
+    "entityTableName": "role",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

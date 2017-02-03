@@ -1,0 +1,19 @@
+{
+    "cs499A2App": {
+        "ClassType" : {
+            "null": "",
+            "BERSERKER": "BERSERKER",
+            "KUNOICHI": "KUNOICHI",
+            "MAEHWA": "MAEHWA",
+            "MUSA": "MUSA",
+            "NINJA": "NINJA",
+            "RANGER": "RANGER",
+            "SORCERESS": "SORCERESS",
+            "TAMER": "TAMER",
+            "VALKYRIE": "VALKYRIE",
+            "WARRIOR": "WARRIOR",
+            "WITCH": "WITCH",
+            "WIZARD": "WIZARD"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "team",
+            "otherEntityName": "player",
+            "otherEntityRelationshipName": "team"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "teamName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "teamType",
+            "fieldType": "TeamType",
+            "fieldValues": "ATTACK,DEFENSE"
+        }
+    ],
+    "changelogDate": "20170203064013",
+    "entityTableName": "team",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

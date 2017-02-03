@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "team",
+            "otherEntityName": "team",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "player",
+            "otherEntityName": "role",
+            "otherEntityRelationshipName": "player"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "familyName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "characterName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "energy",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cp",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170203064015",
+    "entityTableName": "player",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

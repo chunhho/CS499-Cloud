@@ -1,0 +1,37 @@
+entity Team {
+	teamName String,
+    teamType TeamType
+}
+
+entity Role {
+	classType ClassType,
+    level Integer,
+    sp Integer
+}
+
+entity Player {
+	familyName String,
+    characterName String,
+    energy Integer,
+    cp Integer
+}
+
+enum TeamType {
+	ATTACK, DEFENSE
+}
+
+enum ClassType {
+	BERSERKER, KUNOICHI, MAEHWA,
+    MUSA, NINJA, RANGER, SORCERESS,
+    TAMER, VALKYRIE, WARRIOR, WITCH,
+    WIZARD
+}
+
+
+// defining multiple OneToMany relationships
+relationship OneToMany {
+	
+    Team{team} to Player,
+    Player{player} to Role
+}
+
