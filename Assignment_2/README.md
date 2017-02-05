@@ -1,4 +1,26 @@
 # cs499a2
+
+### Entities
+
+    Team
+      TeamName
+      TeamType  
+      
+    Player
+      PlayerName
+      PlayerPoints
+      
+    Role(Class)
+      JobName
+      Level
+ 
+### Relationship
+ 
+    One to Many
+      Team: Players
+      Player: Roles
+
+
 This application was generated using JHipster 4.0.0, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.0.0](https://jhipster.github.io/documentation-archive/v4.0.0).
 
 ## Development
