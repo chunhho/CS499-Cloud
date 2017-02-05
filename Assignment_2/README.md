@@ -6,7 +6,7 @@
       TeamName
       TeamType  
       
-    Player
+    Player(Account)
       PlayerName
       PlayerPoints
       
