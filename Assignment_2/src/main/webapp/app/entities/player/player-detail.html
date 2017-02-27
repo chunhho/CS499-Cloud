@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="cs499A2App.player.detail.title">Player</span> {{vm.player.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="cs499A2App.player.familyName">Family Name</span></dt>
+        <dd>
+            <span>{{vm.player.familyName}}</span>
+        </dd>
+        <dt><span data-translate="cs499A2App.player.characterName">Character Name</span></dt>
+        <dd>
+            <span>{{vm.player.characterName}}</span>
+        </dd>
+        <dt><span data-translate="cs499A2App.player.energy">Energy</span></dt>
+        <dd>
+            <span>{{vm.player.energy}}</span>
+        </dd>
+        <dt><span data-translate="cs499A2App.player.cp">Cp</span></dt>
+        <dd>
+            <span>{{vm.player.cp}}</span>
+        </dd>
+        <dt><span data-translate="cs499A2App.player.team">Team</span></dt>
+        <dd>
+            <a ui-sref="team-detail({id:vm.player.team.id})">{{vm.player.team.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="player-detail.edit({id:vm.player.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

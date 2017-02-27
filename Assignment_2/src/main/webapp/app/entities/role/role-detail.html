@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="cs499A2App.role.detail.title">Role</span> {{vm.role.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="cs499A2App.role.classType">Class Type</span></dt>
+        <dd>
+            <span data-translate="{{'cs499A2App.ClassType.' + vm.role.classType}}">{{vm.role.classType}}</span>
+        </dd>
+        <dt><span data-translate="cs499A2App.role.level">Level</span></dt>
+        <dd>
+            <span>{{vm.role.level}}</span>
+        </dd>
+        <dt><span data-translate="cs499A2App.role.sp">Sp</span></dt>
+        <dd>
+            <span>{{vm.role.sp}}</span>
+        </dd>
+        <dt><span data-translate="cs499A2App.role.player">Player</span></dt>
+        <dd>
+            <a ui-sref="player-detail({id:vm.role.player.id})">{{vm.role.player.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="role-detail.edit({id:vm.role.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
