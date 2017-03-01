@@ -3,7 +3,9 @@ package cs499.a3TopTen;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.IntWritable;
@@ -30,7 +32,7 @@ public class TopTenDriver extends Configured implements Tool {
 
 	public int run(String[] args) throws Exception {
 		if (args.length != 4) {
-			System.err.printf("Usage: %s needs four arguments, 2 input files (TrainingRatings.txt and movie_titles.txt) and 2 output paths\n", getClass().getSimpleName());
+			System.err.printf("Usage: %s needs four arguments, Try hadoop jar a3TopTen-0.0.1-SNAPSHOT.jar cs499.a3TopTen.TopTenDriver TrainingRatings.txt movie_titles.txt TTMOutput TTUOutput\n", getClass().getSimpleName());
 			return -1;
 		}
 
@@ -45,6 +47,22 @@ public class TopTenDriver extends Configured implements Tool {
 		Job getMovieNames = new Job();
 		getMovieNames.setJarByClass(TopTenDriver.class);
 		getMovieNames.setJobName("getMovieName");
+		
+		
+
+		Configuration conf = new Configuration();
+		FileSystem fs = FileSystem.get(conf);
+		
+		
+		if(fs.exists(new Path(args[2]))){
+		   fs.delete(new Path(args[2]),true);
+		}
+
+		if(fs.exists(new Path(args[3]))){
+			fs.delete(new Path(args[3]),true);
+		}
+		
+		
 
 		FileInputFormat.addInputPath(TTMjob, new Path(args[0]));
 		FileOutputFormat.setOutputPath(TTMjob, new Path(args[2]));
