@@ -1,41 +1,41 @@
 from sklearn import linear_model
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.pipeline import make_pipeline
-import flask
 from flask import Flask
 from flask import request
+import flask
+from flask.ext.cors import CORS, cross_origin
 
 data = [[10, 0, 1, 8], [10, 0, 2, 9], [10, 1, 1, 13], [5, 0, 1, 15], [5, 1, 5, 16], [5, 1, 6, 18]]
 output = [[8], [7], [5], [6], [9], [9]]
 pl = make_pipeline(PolynomialFeatures(1), linear_model.LogisticRegression())
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route("/input")
-def hello():
+@app.route('/')
+def InputPage():
+    return flask.send_file("index.html")
+
+@app.route("/input", methods=["POST"])
+@cross_origin()
+def train():
     p1 = request.args.get('p1')
     data.append([request.args.get('p1'), request.args.get('p2'), request.args.get('p3'), request.args.get('p4')])
     output.append([request.args.get('o1')])
     if (len(data) >= 2 and len(output) >= 2):
-       pl.fit(data, output)
+        pl.fit(data, output)
     return "ok"
 
-@app.route("/score")
-def getScore():
-    print(pl.score(data, output))
-    return str(pl.score(data, output))
-
-@app.route("/predict")
+@app.route("/predict", methods=["POST"])
+@cross_origin()
 def predictOutput():
     pred = [request.args.get('p1'), request.args.get('p2'), request.args.get('p3'), request.args.get('p4')]
     prediction = pl.predict([pred])
-    print(prediction[0])
-    return prediction[0]
+    return str(prediction[0])
 
-
-@app.route('/')
-def InputPage():
-    return flask.send_file("trainingData.html")
 
 if __name__ == "__main__":
-    app.run()
+    pl.fit(data, output)
+    app.run(host='0.0.0.0')
