@@ -1,9 +1,13 @@
-# Reddit Elastic Search
+# Reddit Elastic Search with Kibana Visualization
 
-	A simple elasticsearch to store and display subreddit threads.
+	A simple elasticsearch that stores and displays subreddit threads every 10 minutes.
 	It takes threads from new, controversial, rising, and hot; and store the following information: 
 		thread's ID, author, title, number of comments, subreddit category, and score
+		
 	These information are used for display in the main dashboard of Kibana.
+	The main idea of this project is to figure out the most active subreddit threads
+	via by most threads created or by the most number of comments.
+	 
 
 ## Currently, there are 3 Visuals:
 
@@ -24,4 +28,4 @@
 	Displays the top 25 counts of number of comments subreddit categories in a bar graph
 
 
-By Chun Ho
+### By: Chun Ho
