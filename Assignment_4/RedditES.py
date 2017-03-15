@@ -2,15 +2,15 @@ import json
 import requests
 import threading
 import random
-from elasticsearch import Elasticsearch, RequestsHttpConnection
+import certifi
+from elasticsearch import Elasticsearch
+from datetime import datetime
 
 def insertDataToES(*args):
 
     es = Elasticsearch(
-        hosts=[{'host': 'search-cs499-a4-fttrsankja6yyuq5uaazbgtaza.us-west-1.es.amazonaws.com', 'port': 443}],
+        hosts=[{'host': 'search-reddit-es-aromtsvdtghc6szgael3btkniq.us-west-1.es.amazonaws.com', 'port': 443}],
         use_ssl=True,
-        verify_certs=True,
-        connection_class=RequestsHttpConnection
     )
 
     my_index_name = 'reddit'
@@ -18,7 +18,7 @@ def insertDataToES(*args):
     if es.exists(index=my_index_name, doc_type=args[0], id=args[1]):
         es.update(index=my_index_name, doc_type=args[0], id=args[1],
                   body={"doc": {'num_comments': args[4], 'score': args[5]}})
-        print "Updated entry of id: " + args[1]
+        print "Updated entry of id: " + args[1] + " at time: " + str(datetime.now())
 
     else:
         es.index(index=my_index_name, doc_type=args[0], id=args[1], body={
@@ -26,7 +26,8 @@ def insertDataToES(*args):
             'author': args[2],
             'title': args[3],
             'num_comments': args[4],
-            'score': args[5]
+            'score': args[5],
+            'timestamp' : datetime.now()
         })
 
         print "Added entry in " + args[0] + " with its id: " + args[1]
