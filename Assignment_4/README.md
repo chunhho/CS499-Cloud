@@ -1,7 +1,8 @@
 # Reddit Elastic Search
 
 	A simple elasticsearch to store and display subreddit threads.
-	It takes threads from new, controversial, rising, and hot; and store the following information: thread's ID, author, title, number of comments, subreddit category, and score.
+	It takes threads from new, controversial, rising, and hot; and store the following information: 
+		thread's ID, author, title, number of comments, subreddit category, and score
 	These information are used for display in the main dashboard of Kibana.
 
 ## Currently, there are 3 Visuals:
